@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="cardelement_names">
+        <item>Fire</item>
+        <item>Ice</item>
+        <item>Wind</item>
+        <item>Earth</item>
+        <item>Lightning</item>
+        <item>Water</item>
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+
+    <string-array name="cardtype_names">
+        <item>Forward</item>
+        <item>Backup</item>
+        <item>Summon</item>
+        <item>Monster</item>
+    </string-array>
+
+
+    <integer-array name="cardelement_colours">
+        <item>@color/fire</item>
+        <item>@color/ice</item>
+        <item>@color/wind</item>
+        <item>@color/lightning</item>
+        <item>@color/earth</item>
+        <item>@color/water</item>
+        <item>@color/light</item>
+        <item>@color/dark</item>
+    </integer-array>
+
+    <integer-array name="cardelement_foregroundcolours">
+        <item>@color/light</item>
+        <item>@color/dark</item>
+        <item>@color/light</item>
+        <item>@color/light</item>
+        <item>@color/dark</item>
+        <item>@color/light</item>
+        <item>@color/dark</item>
+        <item>@color/light</item>
+    </integer-array>
+
+    <integer-array name="viewtype_backgrounds">
+        <item>@drawable/ic_gridview3</item>
+        <item>@drawable/ic_listview</item>
+        <item>@drawable/ic_gridview2</item>
+    </integer-array>
+
+
+    <string-array name="quantityspinner_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+</resources>

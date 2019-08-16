@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".views.SettingsFragment">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="settings"
+            type="com.example.jonny.fftcgcompanion.viewmodels.SettingsViewModel"/>
+    </data>
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_marginTop="60dp"
+         android:layout_marginStart="10dp"
+         android:layout_marginEnd="10dp"
+         android:layout_marginLeft="10dp"
+         android:layout_marginRight="10dp"
+         android:layout_marginBottom="30dp"
+         android:orientation="vertical">
+
+          <Button
+              android:id="@+id/download_cards_button"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="@string/action_download_cards"
+              android:textColor="@color/colorPrimaryDark"
+              android:onClick="@{settings::downloadCards}"/>
+
+          <Button
+              android:id="@+id/clear_cards_button"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="@string/action_clear_cards"
+              android:textColor="@color/colorPrimaryDark"
+              android:onClick="@{settings::clearCards}"/>
+
+          <Button
+              android:id="@+id/clear_collection_button"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="@string/action_clear_collection"
+              android:textColor="@color/colorPrimaryDark"
+              android:onClick="@{settings::clearCollection}" />
+
+          <LinearLayout
+              android:id="@+id/downloaded_cards_linearlayout"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="5dp"
+              android:layout_marginLeft="5dp"
+              android:layout_marginTop="15dp"
+              android:layout_marginEnd="5dp"
+              android:layout_marginRight="5dp"
+              android:layout_marginBottom="5dp"
+              android:orientation="vertical"
+              android:visibility="@{settings.IsDownloading ? View.VISIBLE : View.GONE}">
+
+              <ProgressBar
+                  android:id="@+id/downloaded_cards_progressbar"
+                  style="@android:style/Widget.ProgressBar.Horizontal"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:progress="@{settings.DownloadedCount}"
+                  android:max="@{settings.DownloadedMax}"/>
+
+              <TextView
+                  android:id="@+id/downloaded_cards_textview"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:textAlignment="center"
+                  android:text="@{settings.ProgressText}"/>
+          </LinearLayout>
+
+     </LinearLayout>
+
+</layout>

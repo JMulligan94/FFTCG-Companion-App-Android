@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".views.DecksFragment">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="decks"
+            type="com.example.jonny.fftcgcompanion.viewmodels.DecksViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/create_card_deck_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/action_create_deck"
+            android:textColor="@color/colorPrimaryDark"
+            android:onClick="@{decks::createDeck}"/>
+
+        <Button
+            android:id="@+id/view_card_decks_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/action_view_decks"
+            android:textColor="@color/colorPrimaryDark"
+            android:onClick="@{decks::viewDecks}"/>
+
+        <Button
+            android:id="@+id/export_collection_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/action_export_collection"
+            android:textColor="@color/colorPrimaryDark"
+            android:onClick="@{decks::exportCardCollection}"/>
+
+        <Button
+            android:id="@+id/import_collection_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/action_import_collection"
+            android:textColor="@color/colorPrimaryDark"
+            android:onClick="@{decks::importCardCollection}"/>
+
+    </LinearLayout>
+</layout>

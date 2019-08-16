@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryLight">#00A77B</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="colorBackgroundLight">#CCC</color>
+    <color name="colorBackgroundDark">#3E3E3E</color>
+
+    <color name="colorBackgroundAltern1">#40FFFFFF</color>
+    <color name="colorBackgroundAltern2">#8CFFFFFF</color>
+    <color name="selectedBackground">#804E9CFC</color>
+
+    <color name="colorQuantityBackground">#66000000</color>
+
+    <color name="textLight">#DDD</color>
+    <color name="textDark">#333</color>
+
+    <!-- Elements -->
+    <color name="fire">#C50000</color>
+    <color name="water">#476FFF</color>
+    <color name="ice">#42BFDD</color>
+    <color name="lightning">#95A</color>
+    <color name="wind">#059B48</color>
+    <color name="earth">#F0E300</color>
+    <color name="light">#DDD</color>
+    <color name="dark">#222</color>
+
+</resources>

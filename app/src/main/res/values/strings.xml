@@ -1,0 +1,43 @@
+<resources>
+
+    <string name="app_name">FFTCG Companion</string>
+
+    <!-- Main Activity -->
+    <string name="title_cards">Cards</string>
+    <string name="title_decks">Decks</string>
+    <string name="title_settings">Settings</string>
+
+    <!-- View Cards Fragment -->
+    <string name="hint_filter_edittext">Search by name/ID...</string>
+
+    <!-- Filter Cards Activity -->
+    <string name="filter_cards_title">Filter Cards</string>
+
+    <!-- Decks Fragment -->
+    <string name="action_create_deck">Create Deck</string>
+    <string name="action_export_collection">Export Cards</string>
+    <string name="action_import_collection">Import Cards</string>
+
+    <!-- Settings Fragment -->
+    <string name="action_clear_collection">Clear Collection</string>
+    <string name="action_download_cards">Download Cards</string>
+    <string name="action_clear_cards">Clear Cached Cards</string>
+
+
+    <string name="title_activity_create_deck">CreateDeckActivity</string>
+    <string name="cardselect1">1</string>
+    <string name="cardselect2">2</string>
+    <string name="cardselect3">3</string>
+    <string name="cardselecthint">Select:</string>
+    <string name="increment">+</string>
+    <string name="decrement">-</string>
+    <string name="close">X</string>
+    <string name="title_activity_view_decks">ViewDecksActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="export">Export</string>
+    <string name="action_view_decks">View Decks</string>
+    <string name="no_decks_found">No Decks Found!</string>
+    <string name="add_deck">Add Deck</string>
+    <string name="import_deck">Import Deck</string>
+
+</resources>

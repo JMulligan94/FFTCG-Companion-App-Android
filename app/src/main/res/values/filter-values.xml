@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="filter_owned_array">
+        <item>Owned</item>
+        <item>Unowned</item>
+    </string-array>
+
+    <string-array name="filter_type_array">
+        <item>Forward</item>
+        <item>Backup</item>
+        <item>Summon</item>
+        <item>Monster</item>
+    </string-array>
+
+    <string-array name="filter_element_array">
+        <item>Fire</item>
+        <item>Ice</item>
+        <item>Wind</item>
+        <item>Earth</item>
+        <item>Lightning</item>
+        <item>Water</item>
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+
+    <string-array name="filter_opus_array">
+        <item>Opus I</item>
+        <item>Opus II</item>
+        <item>Opus III</item>
+        <item>Opus IV</item>
+        <item>Opus V</item>
+        <item>Opus VI</item>
+        <item>Opus VII</item>
+        <item>Opus VIII</item>
+    </string-array>
+
+    <string-array name="filter_cost_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+</resources>

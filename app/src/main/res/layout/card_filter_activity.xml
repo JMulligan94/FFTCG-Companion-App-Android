@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:local="http://schemas.android.com/apk/res/com.example.jonny.fftcgcompanion"
+    tools:context=".activities.CardFilterActivity"
+    android:layout_width="300dp"
+    android:layout_height="400dp"
+    android:background="@color/colorBackgroundLight"
+    android:orientation="vertical"
+    android:padding="4dp">
+
+    <FrameLayout
+        android:id="@+id/title_clear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/filter_cards_title"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_gravity="end"
+            android:text="Clear"
+            android:textSize="12sp"
+            android:onClick="onClear" />
+
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_below="@id/title_clear_layout"
+        android:layout_above="@id/search_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="700dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Card Owned:"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"/>
+
+            <com.example.jonny.fftcgcompanion.utils.FilterLinearLayout
+                android:id="@+id/cardowned_listlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                local:arrayentries="@array/filter_owned_array"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Card Types:"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"/>
+
+            <com.example.jonny.fftcgcompanion.utils.FilterLinearLayout
+                android:id="@+id/cardtype_listlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                local:arrayentries="@array/filter_type_array"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Card Elements:"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"/>
+
+
+            <com.example.jonny.fftcgcompanion.utils.FilterLinearLayout
+                android:id="@+id/cardelement_listlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                local:arrayentries="@array/filter_element_array"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Opus:"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"/>
+
+            <com.example.jonny.fftcgcompanion.utils.FilterLinearLayout
+                android:id="@+id/cardopus_listlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                local:arrayentries="@array/filter_opus_array"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Cost:"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"/>
+
+            <com.example.jonny.fftcgcompanion.utils.FilterLinearLayout
+                android:id="@+id/cardcost_listlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                local:arrayentries="@array/filter_cost_array"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/search_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="Search"
+            android:onClick="onSearch"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
