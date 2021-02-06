@@ -71,7 +71,7 @@ public class CardScannerActivity extends AppCompatActivity
             @Override
             public void receiveDetections(Detector.Detections<TextBlock> detections)
             {
-                String standardRegex = "\\d-\\d{3}[CRHLS]";
+                String standardRegex = "\\d+-\\d{3}[CRHLS]";
                 String prRegex = "PR-\\d{3}";
                 SparseArray<TextBlock> items = detections.getDetectedItems();
                 for (int i = 0; i < items.size(); ++i) {

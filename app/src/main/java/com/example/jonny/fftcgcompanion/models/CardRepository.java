@@ -56,7 +56,7 @@ public class CardRepository
     private static final String s_decksFileName = "decks.json";
 
     private static Map<String, Card> m_cards = new HashMap<>();
-    private static List<String> m_decks = new ArrayList<>();
+    private static Map<String, Deck> m_decks = new HashMap<>();
 
     public static List<Card> getCardList(boolean sorted)
     {
@@ -89,6 +89,11 @@ public class CardRepository
             return m_cards.get(id);
         }
         return null;
+    }
+
+    public static List<Deck> getDecks()
+    {
+        return new ArrayList<>(m_decks.values());
     }
 
     private void loadAllCards()
@@ -206,6 +211,9 @@ public class CardRepository
 
     public static boolean loadAllDecks()
     {
+        if (!m_decks.isEmpty())
+            return true;
+
         String deckFileContents = "";
         try
         {
@@ -239,10 +247,14 @@ public class CardRepository
                 String deckKey = deckIterator.next().toString();
                 JSONObject deckObj = (JSONObject)jsonObj.get(deckKey);
                 Deck deck = new Deck(deckObj);
-                m_decks.add(deck);
+                m_decks.put(deck.getName(), deck);
             }
         }
         catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
+        catch(NullPointerException e)
         {
             e.printStackTrace();
         }
@@ -252,64 +264,39 @@ public class CardRepository
 
     public static Deck getDeck(String deckName)
     {
-        JSONObject allDecksObj = loadAllDecks();
-        if (!allDecksObj.has(deckName))
+        if (m_decks.isEmpty())
+            loadAllDecks();
+
+        if (!m_decks.containsKey(deckName))
             return null;
 
-        Deck deck = null;
-        try
-        {
-            JSONObject deckObj = allDecksObj.getJSONObject(deckName);
-            deck = new Deck(deckObj);
-        }
-        catch (JSONException e)
-        {
-            e.printStackTrace();
-        }
-        return deck;
+        return m_decks.get(deckName);
     }
 
     public static boolean saveDeck(Deck deck)
     {
         // Check if a deck with the same name exists
-        if (m_decks.contains("deck_" + deck.getName()))
+        if (m_decks.containsKey(deck.getName()))
         {
             return false;
         }
-
-        JSONObject newDeckObj = deck.convertToJSON();
-
-        if (newDeckObj == null)
-            return false;
 
         // Read in current decks and remove if already exists
-        JSONObject decksJson = loadAllDecks();
-        if (decksJson != null)
+        if (!m_decks.isEmpty())
         {
-            if (decksJson.has(deck.getName()))
+            if (m_decks.containsKey(deck.getName()))
             {
-                decksJson.remove(deck.getName());
+                m_decks.remove(deck.getName());
             }
         }
-        else
-        {
-            decksJson = new JSONObject();
-        }
 
-        try
-        {
-            decksJson.put(deck.getName(), newDeckObj);
-        }
-        catch (JSONException e)
-        {
-            Log.e("CardRepository", e.getMessage());
-        }
+        m_decks.put(deck.getName(), deck);
 
         FileOutputStream outputStream;
         try
         {
             outputStream = FFTCGCompanionApplication.getAppContext().openFileOutput(s_decksFileName, Context.MODE_PRIVATE);
-            outputStream.write(decksJson.toString().getBytes());
+            outputStream.write(deck.convertToJSON().toString().getBytes());
             outputStream.close();
         } catch (Exception e)
         {
@@ -321,26 +308,14 @@ public class CardRepository
 
     public static boolean deleteDeck(Deck deck)
     {
-        // Check if a deck with the same name exists
-        if (!m_decks.contains("deck_" + deck.getName()))
+        // Remove if  exists
+        if (m_decks.containsKey(deck.getName()))
         {
-            return false;
+            m_decks.remove(deck.getName());
+            return true;
         }
 
-        // Read in current decks and remove if already exists
-        JSONObject decksJson = loadAllDecks();
-        if (decksJson != null)
-        {
-            if (decksJson.has(deck.getName()))
-            {
-                decksJson.remove(deck.getName());
-            }
-        }
-
-        m_decks.remove(deck);
-
-
-        return true;
+        return false;
     }
 
     public void exportAsCSV(String filename)

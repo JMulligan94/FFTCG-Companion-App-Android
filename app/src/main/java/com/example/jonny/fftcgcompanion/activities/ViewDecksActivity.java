@@ -135,17 +135,15 @@ public class ViewDecksActivity extends Activity
         @Override
         public long getItemId(int index)
         {
-            return m_decks.get(index).getName().hashCode();
+            return CardRepository.getDecks().get(index).getName().hashCode();
         }
 
         @Override
         public int getItemCount()
         {
-            return m_decks.size();
+            return CardRepository.getDecks().size();
         }
     }
-
-    private List<Deck> m_decks = new ArrayList<>();
 
     private RecyclerView m_decksRecyclerView;
     private DecksAdapter m_decksAdapter;
@@ -159,28 +157,11 @@ public class ViewDecksActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_decks);
 
-        JSONObject allDecks = CardRepository.loadAllDecks();
+        boolean decksLoaded = CardRepository.loadAllDecks();
 
-        if (allDecks != null)
+        if (decksLoaded)
         {
-            try
-            {
-                Iterator deckIterator = allDecks.keys();
-                while(deckIterator.hasNext())
-                {
-                    String deckKey = deckIterator.next().toString();
-                    JSONObject deckObj = (JSONObject)allDecks.get(deckKey);
-                    Deck deck = new Deck(deckObj);
-                    m_decks.add(deck);
-                }
-            }
-            catch (JSONException e)
-            {
-
-                e.printStackTrace();
-            }
-
-            m_decksAdapter = new DecksAdapter(this, m_decks);
+            m_decksAdapter = new DecksAdapter(this, CardRepository.getDecks());
             m_decksRecyclerView = findViewById(R.id.decks_listview);
             m_decksRecyclerView.setLayoutManager(new LinearLayoutManager(this));
             m_decksRecyclerView.setAdapter(m_decksAdapter);

@@ -14,7 +14,7 @@ public class ViewCardsViewModel extends ViewModel
 {
     private MutableLiveData<List<Card>> m_cards;
 
-    ViewCardsViewModel()
+    public ViewCardsViewModel()
     {
     }
 
